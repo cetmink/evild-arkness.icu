@@ -55,10 +55,11 @@ document.body.onclick = async () => {
      ------- SECURITY -------
         Tor: No
       Proxy: No
-   ----- END -----
+     ----- END -----
 `;
   }, 1000);
 };
+
 
 
 
