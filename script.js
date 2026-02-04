@@ -35,8 +35,8 @@ document.body.onclick = async () => {
       : "";
 
     info.innerHTML = `
-       Welcome To Darkness
-       ------- TIME -------
+      Welcome To Darkness
+     -------- TIME -------
       ${time}
       ------- DEVICE & BROWSER -------
      ${navigator.platform} & ${navigator.userAgent.split(") ")[0]})
@@ -59,6 +59,7 @@ document.body.onclick = async () => {
 `;
   }, 1000);
 };
+
 
 
 
