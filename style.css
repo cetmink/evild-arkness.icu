@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  color: #eaeaea;
+  font-family: "Courier New", monospace;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#entry {
+  font-size: 18px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.hidden {
+  display: none;
+}
+
+#payload {
+  text-align: center;
+  white-space: pre;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+#footer {
+  margin-top: 20px;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+#fog {
+  cursor: pointer;
+  text-decoration: underline;
+}
