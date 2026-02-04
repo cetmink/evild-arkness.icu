@@ -39,7 +39,7 @@ document.body.onclick = async () => {
        ------- TIME -------
       ${time}
   ------- DEVICE & BROWSER -------
-${navigator.platform} & ${navigator.userAgent.split(") ")[0]})
+     ${navigator.platform} & ${navigator.userAgent.split(") ")[0]})
       ------- IPDATA -------
     IP Address: ${data.ip}
      Country: ${data.country_name} ${flag ? `<img src="${flag}">` : ""}
@@ -53,9 +53,10 @@ ${navigator.platform} & ${navigator.userAgent.split(") ")[0]})
       Currency: ${data.currency}
        Language: ${navigator.language}
      ------- SECURITY -------
-            Tor: No
-          Proxy: No
-      ---------END----------
+        Tor: No
+      Proxy: No
+    ------- END -------
 `;
   }, 1000);
 };
+
