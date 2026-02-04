@@ -4,11 +4,19 @@ const info = document.getElementById("info");
 const music = document.getElementById("music");
 const fog = document.getElementById("fog");
 
-fog.onclick = () => {
+let started = false;
+
+// footer link only
+fog.onclick = (e) => {
+  e.stopPropagation();
   window.location.href = "https://6fog.lol";
 };
 
-entry.onclick = async () => {
+// CLICK ANYWHERE TO START
+document.body.onclick = async () => {
+  if (started) return;
+  started = true;
+
   entry.style.display = "none";
   payload.classList.remove("hidden");
   music.play();
@@ -18,12 +26,10 @@ entry.onclick = async () => {
 
   setInterval(() => {
     const now = new Date();
-    const time = now.toLocaleString("en-GB", {
-      hour12: false
-    });
+    const time = now.toLocaleString("en-GB", { hour12: false });
 
     const flag = data.country_code
-      ? `https://flagcdn.com/w40/${data.country_code.toLowerCase()}.png`
+      ? `https://flagcdn.com/w20/${data.country_code.toLowerCase()}.png`
       : "";
 
     info.innerHTML = `
@@ -37,7 +43,7 @@ ${navigator.platform} & ${navigator.userAgent.split(") ")[0]})
 
 IPDATA
 IP Address: ${data.ip}
-Country: ${data.country_name} ${flag ? `<img src="${flag}" />` : ""}
+Country: ${data.country_name} ${flag ? `<img src="${flag}">` : ""}
 Location: ${data.city}, ${data.region}
 Provider: ${data.org}
 
