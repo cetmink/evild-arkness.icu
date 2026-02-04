@@ -38,7 +38,7 @@ document.body.onclick = async () => {
        Welcome To Darkness
        ------- TIME -------
       ${time}
-  ------- DEVICE & BROWSER -------
+      ------- DEVICE & BROWSER -------
      ${navigator.platform} & ${navigator.userAgent.split(") ")[0]})
       ------- IPDATA -------
     IP Address: ${data.ip}
@@ -59,4 +59,5 @@ document.body.onclick = async () => {
 `;
   }, 1000);
 };
+
 
