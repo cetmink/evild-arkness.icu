@@ -6,11 +6,13 @@ const fog = document.getElementById("fog");
 
 let started = false;
 
+// Footer link only
 fog.onclick = (e) => {
   e.stopPropagation();
   window.location.href = "https://6fog.lol";
 };
 
+// Click anywhere to start
 document.body.onclick = async () => {
   if (started) return;
   started = true;
@@ -19,41 +21,46 @@ document.body.onclick = async () => {
   payload.classList.remove("hidden");
   music.play();
 
-  // SEND IP/LOCATION TO DISCORD (NO CAMERA)
   const res = await fetch("https://ipapi.co/json/");
   const data = await res.json();
-  
-  // REPLACE THIS WITH YOUR DISCORD WEBHOOK URL
-  const WEBHOOK_URL = "https://discord.com/api/webhooks/1499130770881646652/I-TGuJlGuxeC1N12ATsn0hmnnQ8V4NbrvPg2NkGkDZWUhYNaRmzYa-DTTdK-iLJ-txc4"; // ← CRITICAL: REPLACE THIS
 
-  // SEND DATA TO DISCORD
-  const payload = {
-    content: "🔥 New visitor to darkness.icu",
-    embeds: [{
-      title: "IP & Location Logged",
-      color: 0xff0000,
-      fields: [
-        { name: "IP Address", value: data.ip, inline: true },
-        { name: "Country", value: data.country_name, inline: true },
-        { name: "City", value: data.city, inline: true },
-        { name: "Region", value: data.region, inline: true },
-        { name: "Coordinates", value: `${data.latitude}, ${data.longitude}`, inline: true },
-        { name: "Timezone", value: data.timezone, inline: true },
-        { name: "Language", value: navigator.language, inline: true },
-        { name: "User Agent", value: navigator.userAgent, inline: true }
-      ],
-      timestamp: new Date().toISOString()
-    }]
-  };
-
-  await fetch(WEBHOOK_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  });
-
-  // Show IP info on the site (as before)
   setInterval(() => {
-    // ... [your existing setInterval code] ...
+    const now = new Date();
+    const time = now.toLocaleString("en-GB", {
+      hour12: false
+    });
+
+    const flag = data.country_code
+      ? `https://flagcdn.com/w20/${data.country_code.toLowerCase()}.png`
+      : "";
+
+    info.innerHTML = `
+      Welcome To Darkness
+     -------- TIME -------
+      ${time}
+      ------- DEVICE & BROWSER -------
+     ${navigator.platform} & ${navigator.userAgent.split(") ")[0]})
+      ------- IPDATA -------
+    IP Address: ${data.ip}
+     Country: ${data.country_name} ${flag ? `<img src="${flag}">` : ""}
+      Location: ${data.city}, ${data.region}
+  Provider: ${data.org}
+     ------- LOCATION -------
+     Continent: ${data.continent_code}
+    Postal Code: ${data.postal}
+   Coordinates: ${data.latitude}, ${data.longitude}
+    Timezone: ${data.timezone}
+      Currency: ${data.currency}
+       Language: ${navigator.language}
+     ------- SECURITY -------
+        Tor: No
+      Proxy: No
+     ----- END -----
+`;
   }, 1000);
 };
+
+
+
+
+
